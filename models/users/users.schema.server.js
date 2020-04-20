@@ -4,6 +4,7 @@ const usersSchema = mongoose.Schema({
     password: { type: String, required: true },
     firstname: String,
     lastname: String,
+    github: String,
     email: { type: String, lowercase: true, validate: [checkEmail, 'Email invalid'] },
     joinDate: Date,
     role: String

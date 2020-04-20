@@ -12,4 +12,7 @@ module.exports = function (app) {
     app.put('/api/repos/:id', (req, res) =>
         repositoryService.updateRepository(req.params['id'], req.body)
             .then(repository => res.json(repository)))
+    app.delete('/api/repos/:id', (req, res) =>
+        repositoryService.deleteRepository(req.params['id']))
+            .then(resp => res.json(resp))
 }

@@ -13,6 +13,6 @@ module.exports = function (app) {
         repositoryService.updateRepository(req.params['id'], req.body)
             .then(repository => res.json(repository)))
     app.delete('/api/repos/:id', (req, res) =>
-        repositoryService.deleteRepository(req.params['id']))
-            .then(resp => res.json(resp))
+        repositoryService.deleteRepository(req.params['id'])
+            .then(resp => res.json(resp)))
 }

@@ -27,5 +27,8 @@ app.use(function (req, res, next) {
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+require('./controllers/admins.controller.server')(app)
+require('./controllers/repository.controller.server')(app)
+require('./controllers/users.controller.server')(app)
 
 app.listen(process.env.PORT || 3000)

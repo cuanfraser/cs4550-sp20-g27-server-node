@@ -9,4 +9,7 @@ module.exports = function (app) {
     app.post('/api/repos', (req, res) =>
         repositoryService.createRepository(req.body)
             .then(repository => res.send(repository)))
+    app.put('/api/repos/:id', (req, res) =>
+        repositoryService.updateRepository(req.params['id'], req.body)
+            .then(repository => res.json(repository)))
 }

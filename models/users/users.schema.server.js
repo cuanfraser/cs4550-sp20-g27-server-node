@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const checkEmail = (email) => {
-    var chars = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return chars.test(email)
-};
+// const checkEmail = (email) => {
+//     var chars = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//     return chars.test(email)
+// };
 
 const usersSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true, dropDups: true },
@@ -11,7 +11,7 @@ const usersSchema = mongoose.Schema({
     firstname: String,
     lastname: String,
     github: String,
-    email: { type: String, lowercase: true, validate: [checkEmail, 'Email invalid'] },
+    email: { type: String, lowercase: true },
     joinDate: Date,
     role: String
 }, { collection: 'users' })

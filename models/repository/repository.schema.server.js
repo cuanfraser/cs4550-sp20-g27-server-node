@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const repositorySchema = mongoose.Schema({
     name: String,
-    url: String,
+    url: { type: String, unique: true, dropDups: true, lowercase: true },
     description: String,
     issueTickets: [{
         type: mongoose.Schema.Types.ObjectId,

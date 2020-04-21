@@ -18,8 +18,15 @@ module.exports = function (app) {
                 res.send(user)
             }))
 
-    app.post('/api/users/profile', (req, res) =>
-        res.send(req.session['profile']))
+    app.post('/api/users/profile', (req, res) => {
+        if (req.session['profile']) {
+            res.send(req.session['profile'])
+        }
+        else {
+            res.sendStatus(401)
+        }
+    })
+        
 
     app.post('/api/users/logout', (req, res) => {
         req.session.destroy()

@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const session = require('express-session')
 const mongoose = require('mongoose')
 
 var connectionString = 'mongodb://localhost:27017/cs4550-project';
@@ -12,6 +13,12 @@ if (process.env.MLAB_USERNAME_WEBDEV) {
 
 mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true })
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'temporary secret string'
+}));
 
 app.use(function (req, res, next) {
     var allowedOrigins = ['http://cs4550-sp20-g27-client-angular.herokuapp.com', 'http://localhost:4200', 'http://127.0.0.1:9000', 'http://localhost:9000', '66.31.204.180:4200'];

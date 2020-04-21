@@ -14,8 +14,13 @@ mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin",
-        "66.31.204.180");
+    var allowedOrigins = ['http://cs4550-sp20-g27-client-angular.herokuapp.com', 'http://localhost:4200', 'http://127.0.0.1:9000', 'http://localhost:9000', '66.31.204.180:4200'];
+    var origin = req.headers.origin;
+    if (allowedOrigins.indexOf(origin) > -1) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    // res.header("Access-Control-Allow-Origin",
+    //     "66.31.204.180");
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods",

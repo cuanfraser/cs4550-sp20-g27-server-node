@@ -15,7 +15,7 @@ mongoose.connect(connectionString,
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin",
-        "*");
+        "66.31.204.180");
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods",

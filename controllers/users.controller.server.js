@@ -20,10 +20,10 @@ module.exports = function (app) {
 
     app.post('/api/users/profile', (req, res) => {
         if (req.session['profile']) {
-            res.send(req.session['profile'])
+            res.json(req.session['profile'])
         }
         else {
-            res.sendStatus(401)
+            res.status(401).json()
         }
     })
         

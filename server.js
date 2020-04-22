@@ -42,5 +42,6 @@ app.use(bodyParser.json())
 require('./controllers/admins.controller.server')(app)
 require('./controllers/repository.controller.server')(app)
 require('./controllers/users.controller.server')(app)
+require('./controllers/issue-ticket.controller.server')(app)
 
 app.listen(process.env.PORT || 3000)

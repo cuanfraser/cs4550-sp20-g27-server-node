@@ -15,7 +15,7 @@ module.exports = function (app) {
     app.delete('/api/issues/:id', (req, res) =>
         issueDaos.deleteIssue(req.params['id'])
             .then(resp => res.json(resp)))
-    app.get('/api/repos/:rid/attempts', (req,res) =>
+    app.get('/api/repos/:rid/issues', (req,res) =>
         issueDaos.findIssuesForRepo(req.params['id'])
             .then(resp => res.json()))
 }

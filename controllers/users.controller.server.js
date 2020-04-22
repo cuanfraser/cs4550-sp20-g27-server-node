@@ -23,7 +23,9 @@ module.exports = function (app) {
             res.send(req.session['profile'])
         }
         else {
-            res.status(401)
+            res.status(401).send({
+                message: 'Please log in'
+            })
         }
     })
         

@@ -9,6 +9,11 @@ module.exports = function (app) {
     app.post('/api/users', (req, res) =>
         usersService.createUser(req.body)
             .then(user => res.send(user)))
+    app.put('/api/users/:id', (req, res) =>
+        usersService.updateUser(req.params['id'], req.body)
+            .then(user => res.json(user)))
+
+    //Session Related:
 
     app.post('/api/users/register', (req, res) =>
         usersService.createUser(req.body)
@@ -28,7 +33,7 @@ module.exports = function (app) {
             })
         }
     })
-        
+
 
     app.post('/api/users/logout', (req, res) => {
         req.session.destroy()

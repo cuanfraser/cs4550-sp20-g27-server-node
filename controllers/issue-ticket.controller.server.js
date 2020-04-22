@@ -17,5 +17,5 @@ module.exports = function (app) {
             .then(resp => res.json(resp)))
     app.get('/api/repos/:rid/issues', (req,res) =>
         issueDaos.findIssuesForRepo(req.params['id'])
-            .then(resp => res.json()))
+            .then(resp => res.json(resp)))
 }
